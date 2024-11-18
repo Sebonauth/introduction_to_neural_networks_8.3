@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectorizing the Computations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        p, h4 {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .test-your-knowledge {
+            margin: 20px 0;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .test-your-knowledge h4 {
+            margin-bottom: 10px;
+        }
+        .test-your-knowledge ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .test-your-knowledge li {
+            margin: 10px 0;
+        }
+        .test-your-knowledge button {
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .test-your-knowledge button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .test-your-knowledge button:active {
+            background-color: #1e7e34;
+            transform: scale(0.95);
+        }
+        .explanation {
+            display: none;
+            background-color: #eaf5ff;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .continue-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <section id="section1">
+        <p>Computing the weighted sum for each neuron can be tedious if done individually, especially for networks with many neurons. Luckily, we can use vectors and matrices to simplify these calculations.</p>
+        <div class="continue-button" data-next-section="2">Continue</div>
+    </section>
+
+    <section id="section2">
+        <p>Let's represent the inputs, weights, and biases using vectors and matrices.</p>
+        <div class="continue-button" data-next-section="3">Continue</div>
+    </section>
+
+    <section id="section3">
+        <p>Let \( \mathbf{x} \) be the input vector:</p>
+        <p>\[ \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \]</p>
+        <div class="continue-button" data-next-section="4">Continue</div>
+    </section>
+
+    <section id="section4">
+        <p>And \( \mathbf{w} \) be the weight vector for a neuron:</p>
+        <p>\[ \mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_n \end{bmatrix} \]</p>
+        <div class="continue-button" data-next-section="5">Continue</div>
+    </section>
+
+    <section id="section5">
+        <p>Then the weighted sum \( z \) can be computed as the dot product of \( \mathbf{w} \) and \( \mathbf{x} \), plus the bias \( b \):</p>
+        <p>\[ z = \mathbf{w}^T \mathbf{x} + b \]</p>
+        <div class="continue-button" data-next-section="6">Continue</div>
+    </section>
+
+    <section id="section6">
+        <p>This formulation allows us to compute \( z \) efficiently, especially when using programming languages and libraries that support vectorized operations.</p>
+        <div class="continue-button" data-next-section="7">Continue</div>
+    </section>
+
+    <section id="section7">
+        <p>For a layer with multiple neurons, we can extend this to matrix operations.</p>
+        <div class="continue-button" data-next-section="8">Continue</div>
+    </section>
+
+    <section id="section8">
+        <p>Suppose we have an input vector \( \mathbf{x} \) and a weight matrix \( \mathbf{W} \), where each row of \( \mathbf{W} \) contains the weights for a different neuron in the layer:</p>
+        <p>\[ \mathbf{W} = \begin{bmatrix} w_{11} & w_{12} & \dots & w_{1n} \\ w_{21} & w_{22} & \dots & w_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ w_{m1} & w_{m2} & \dots & w_{mn} \end{bmatrix} \]</p>
+        <div class="continue-button" data-next-section="9">Continue</div>
+    </section>
+
+    <section id="section9">
+        <p>The biases can be represented as a vector \( \mathbf{b} \):</p>
+        <p>\[ \mathbf{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{bmatrix} \]</p>
+        <div class="continue-button" data-next-section="10">Continue</div>
+    </section>
+
+    <section id="section10">
+        <p>Then, the vector of weighted sums \( \mathbf{z} \) for all neurons in the layer is:</p>
+        <p>\[ \mathbf{z} = \mathbf{W} \mathbf{x} + \mathbf{b} \]</p>
+        <div class="continue-button" data-next-section="11">Continue</div>
+    </section>
+
+    <section id="section11">
+        <p>Applying the activation function element-wise to \( \mathbf{z} \), we get the output vector \( \mathbf{a} \):</p>
+        <p>\[ \mathbf{a} = \sigma(\mathbf{z}) \]</p>
+        <div class="continue-button" data-next-section="12">Continue</div>
+    </section>
+
+    <section id="section12">
+        <p>This vectorized approach simplifies the computation and is more efficient.</p>
+        <div class="test-your-knowledge">
+            <h4>Test Your Knowledge</h4>
+            <p>Given the input vector \( \mathbf{x} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \), weight matrix \( \mathbf{W} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \), and bias vector \( \mathbf{b} = \begin{bmatrix} 0 \\ -1 \end{bmatrix} \), compute the weighted sum vector \( \mathbf{z} \).</p>
+            <ul>
+                <li><button onclick="showExplanation(1)">\[ \mathbf{z} = \begin{bmatrix} 2 \\ 0 \end{bmatrix} \]</button></li>
+                <li><button onclick="showExplanation(2)">\[ \mathbf{z} = \begin{bmatrix} 2 \\ 1 \end{bmatrix} \]</button></li>
+                <li><button onclick="showExplanation(3)">\[ \mathbf{z} = \begin{bmatrix} 1 \\ -1 \end{bmatrix} \]</button></li>
+                <li><button onclick="showExplanation(4)">\[ \mathbf{z} = \begin{bmatrix} 3 \\ -1 \end{bmatrix} \]</button></li>
+            </ul>
+            <div id="explanation1" class="explanation">Correct! \( \mathbf{z} = \mathbf{W} \mathbf{x} + \mathbf{b} = \begin{bmatrix} 2 \\ 0 \end{bmatrix} \).</div>
+            <div id="explanation2" class="explanation">Recalculate \( \mathbf{z} = \mathbf{W} \mathbf{x} + \mathbf{b} \).</div>
+            <div id="explanation3" class="explanation">Recalculate using the correct formula.</div>
+            <div id="explanation4" class="explanation">Recalculate using the correct formula.</div>
+        </div>
+        <div class="continue-button" data-next-section="13">Continue</div>
+    </section>
+
+    <section id="section13">
+        <p>Now, applying an activation function to \( \mathbf{z} \), we get the outputs for each neuron in the layer.</p>
+    </section>
+
+    <script>
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1";
+
+        document.addEventListener('click', (event) => {
+            if (event.target.classList.contains('continue-button')) {
+                const nextSectionId = event.target.getAttribute('data-next-section');
+                const nextSection = document.getElementById(`section${nextSectionId}`);
+                event.target.style.display = "none";
+                nextSection.style.display = "block";
+                setTimeout(() => nextSection.style.opacity = "1", 10);
+                setTimeout(() => nextSection.scrollIntoView({ behavior: 'smooth' }), 500);
+            }
+        });
+
+        function showExplanation(id) {
+            document.getElementById(`explanation${id}`).style.display = "block";
+        }
+    </script>
+</body>
+</html>
